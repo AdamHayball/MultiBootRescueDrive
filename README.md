@@ -36,7 +36,7 @@ The drive is initialized with an **MBR partition table** to maximize compatibili
 | sdx3      | 32MB         | FAT16      | `VTOYEFI` – required by Ventoy for UEFI boot and Secure Boot support    |
 | Unused    | Small buffer | -          | Small alignment buffer I left 8MB feel free to leave more              |
 
-**Note:** The second user partition is placed at the *end* of the drive to ensure optimal compatibility with legacy BIOS environments, some of which misbehave with complex partitioning early on the disk.
+**Note:** The third user partition is placed at the *end* of the drive to ensure optimal compatibility with legacy BIOS environments, some of which misbehave with complex partitioning early on the disk.
 
 ---
 
