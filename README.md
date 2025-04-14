@@ -165,7 +165,7 @@ X:\PortableApps\PortableApps.exe
 ## 🧩 Future Ideas
 
 - Add **Ventoy auto-install scripts** for unattended Windows or Linux installs.
-- Setup a **dual-bootable Linux install** on the drive.
+- Setup a **dual-bootable Linux or Windows IoT install** on the drive.
 - Include **encrypted partitions** or `veracrypt` containers for secure data storage.
 
 ---
