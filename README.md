@@ -3,6 +3,12 @@
 This project details the creation of a **high-performance, durable, and consolidated Ventoy bootable drive** using an **ROG Strix Arion NVMe enclosure** paired with a **250GB Samsung 970 EVO** SSD. The purpose of this setup is to replace a scattered collection of USB sticks with a single, fast, and reliable drive that supports **BIOS and UEFI booting**, **secure boot**, **persistence**, and **portable applications** for both **Windows and Linux** environments.
 
 ---
+<p align="center">
+  <img src="https://github.com/AdamHayball/MultiBootRescueDrive/blob/main/usbsticks.jpg?raw=true" alt="Old USB Sticks" width="30%" />
+  <img src="https://github.com/AdamHayball/MultiBootRescueDrive/blob/main/drivelayout.jpg?raw=true" alt="Drive Layout" width="30%" />
+  <img src="https://github.com/AdamHayball/MultiBootRescueDrive/blob/main/nvme.jpg?raw=true" alt="NVMe in Enclosure" width="30%" />
+</p>
+---
 
 ## 🧰 What You’ll Need
 
