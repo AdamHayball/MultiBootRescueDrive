@@ -31,12 +31,12 @@ The drive is initialized with an **MBR partition table** to maximize compatibili
 
 | Partition | Size         | Type       | Purpose                                                                 |
 |-----------|--------------|------------|-------------------------------------------------------------------------|
-| sdx1      | ~120GB       | exFAT      | `VENTOY` Primary Ventoy partition: Live ISOs (Windows/Linux), persistence files  |
-| sdx2      | ~130GB       | exFAT      | `Portable` Additional data & tools: PortableApps (Windows), cloned Linux utilities |
+| sdx1      | ~108GB       | exFAT      | `VENTOY` Primary Ventoy partition: Live ISOs (Windows/Linux), persistence files  |
+| sdx2      | ~142GB       | exFAT      | `Portable` Additional data & tools: PortableApps (Windows), cloned Linux utilities |
 | sdx3      | 32MB         | FAT16      | `VTOYEFI` – required by Ventoy for UEFI boot and Secure Boot support    |
 | Unused    | Small buffer | -          | Small alignment buffer I left 8MB feel free to leave more              |
 
-**Note:** The third user partition is placed at the *end* of the drive to ensure optimal compatibility with legacy BIOS environments, some of which misbehave with complex partitioning early on the disk.
+**Note:** The third user partition is placed at the *end* of the drive to ensure optimal compatibility with legacy BIOS environments, some of which misbehave with complex partitioning early on the disk and have a bug which will not allow the BIOS to read past 108GB.
 
 ---
 
@@ -82,13 +82,13 @@ The drive is initialized with an **MBR partition table** to maximize compatibili
 ### 2. Install Ventoy
 
 ```bash
-sudo ./Ventoy2Disk.sh -i -s -r 133120000 /dev/sdX
+sudo ./Ventoy2Disk.sh -i -s -r 145408000 /dev/sdX
 ```
 
 > 💡 This will create:
-> - First partition: `VENTOY` exFAT ISO/data partition (~120GB)
+> - First partition: `VENTOY` exFAT ISO/data partition (~108GB)
 > - Second partition: `VTOYEFI` FAT16 for UEFI/Secure Boot (32MB)
-> - You may now manually create a third `Tools` exFAT partition (~130GB) at the end of the drive.
+> - You may now manually create a third `Tools` exFAT partition (~142GB) at the end of the drive.
 
 ### 3. Enable Secure Boot and Persistence
 
@@ -109,7 +109,7 @@ For persistence, follow [Ventoy’s persistence guide](https://www.ventoy.net/en
 
 ### 5. Setup the Tools Partition
 
-- Format the second partition (at the end) as **exFAT** or **NTFS**.
+- Format the second partition (at the end) as **exFAT**.
 - Clone Linux tool repositories:
 
 ```bash
