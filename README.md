@@ -22,7 +22,7 @@ This project details the creation of a **high-performance, durable, and consolid
 - (Optional) [VentoyPlugson](https://github.com/ventoy/VentoyPlugson) for persistence and secure boot
 - Tools like `GParted`, `Rufus`, or `DiskGenius` (for partitioning if needed)
 - Internet access for cloning additional Linux utilities and portable Windows apps
-- Beware For **VERY** old systems a USB2.0 thumbstick or CD-R/W is sometimes the best option, those use cases are outside of the scope of this project and will not be covered
+- Beware for **VERY** old systems a USB2.0 thumbstick, CD-R/W and even Floppy emulation is sometimes the best option, those use cases are outside of the scope of this project and will not be covered
 
 ---
 
