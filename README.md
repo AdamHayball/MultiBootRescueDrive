@@ -87,8 +87,8 @@ sudo ./Ventoy2Disk.sh -i -s -r 133120000 /dev/sdX
 
 > 💡 This will create:
 > - First partition: `VENTOY` exFAT ISO/data partition (~120GB)
-> - Second partition: 32MB `VTOYEFI` (FAT16) for UEFI/Secure Boot  
-> - You may now manually create a third `Tools` exFAT partition (~130GB) at the end.
+> - Second partition: `VTOYEFI` FAT16 for UEFI/Secure Boot (32MB)
+> - You may now manually create a third `Tools` exFAT partition (~130GB) at the end of the drive.
 
 ### 3. Enable Secure Boot and Persistence
 
