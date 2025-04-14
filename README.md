@@ -16,7 +16,7 @@ This project details the creation of a **high-performance, durable, and consolid
 
 - **NVMe enclsoure - ROG Strix Arion NVMe Enclosure**
 - **NVMe Drive - Samsung 970 EVO 250GB NVMe SSD**
-- Optionally you can perform this same setup on a good quality large capacity USB3.x thumbstick or sata drive however you will see reduced performance
+- Optionally you can perform this same setup on a good quality large capacity USB3.x thumbstick or sata drive, however you will see reduced performance
 - A Linux or Windows host to run Ventoy and partition tools
 - [Ventoy](https://www.ventoy.net/)
 - (Optional) [VentoyPlugson](https://github.com/ventoy/VentoyPlugson) for persistence and secure boot
