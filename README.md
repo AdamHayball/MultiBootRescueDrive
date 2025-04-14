@@ -30,10 +30,10 @@ The drive is initialized with an **MBR partition table** to maximize compatibili
 
 | Partition | Size         | Type       | Purpose                                                                 |
 |-----------|--------------|------------|-------------------------------------------------------------------------|
-| sdx1      | ~120GB       | exFAT      | Primary Ventoy partition: Live ISOs (Windows/Linux), persistence files  |
-| sdx2      | ~130GB       | exFAT/NTFS | Additional data & tools: PortableApps (Windows), cloned Linux utilities |
+| sdx1      | ~120GB       | exFAT      | `VENTOY` Primary Ventoy partition: Live ISOs (Windows/Linux), persistence files  |
+| sdx2      | ~130GB       | exFAT      | `Portable` Additional data & tools: PortableApps (Windows), cloned Linux utilities |
 | sdx3      | 32MB         | FAT16      | `VTOYEFI` – required by Ventoy for UEFI boot and Secure Boot support    |
-| Unused    | Small buffer | -          | Small alignment buffer or reserved by Ventoy installer                  |
+| Unused    | Small buffer | -          | Small alignment buffer I left 8MB feel free to leave more              |
 
 **Note:** The second user partition is placed at the *end* of the drive to ensure optimal compatibility with legacy BIOS environments, some of which misbehave with complex partitioning early on the disk.
 
