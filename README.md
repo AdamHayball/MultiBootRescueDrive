@@ -75,7 +75,7 @@ The drive is initialized with an **MBR partition table** to maximize compatibili
 
 ### 1. Prepare the Drive
 
-1. Connect the Arion enclosure to your system.
+1. Install the NVMe drive and connect your enclosure to the system.
 2. Use **GParted** or **Disk Management** to create an **MBR layout** while this step is not strictly necessary it is a peace of mind step to ensure drive is setup correctly.
 3. Run the Ventoy installer with the correct flags (next step) which will also create the 32MB `VTOYEFI` partition automatically.
 
