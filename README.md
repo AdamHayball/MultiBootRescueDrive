@@ -5,9 +5,9 @@ This project details the creation of a **high-performance, durable, and consolid
 ---
 
 <p align="center">
-  <img src="https://github.com/AdamHayball/MultiBootRescueDrive/blob/main/usbsticks.jpg" alt="Old USB Sticks" width="30%" />
-  <img src="https://github.com/AdamHayball/MultiBootRescueDrive/blob/main/nvme.jpg" alt="NVMe in Enclosure" width="30%" />
-  <img src="https://github.com/AdamHayball/MultiBootRescueDrive/blob/main/drivelayout.jpg" alt="Drive Layout" width="30%" />
+  <img src="https://github.com/AdamHayball/MultiBootRescueDrive/blob/main/usbsticks.jpg" alt="Old USB Sticks" height="200px" width="30%" />
+  <img src="https://github.com/AdamHayball/MultiBootRescueDrive/blob/main/nvme.jpg" alt="NVMe in Enclosure" height="200px" width="30%" />
+  <img src="https://github.com/AdamHayball/MultiBootRescueDrive/blob/main/drivelayout.jpg" alt="Drive Layout" height="200px" width="30%" />
 </p>
 
 ---
