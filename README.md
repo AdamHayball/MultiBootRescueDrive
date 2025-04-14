@@ -82,7 +82,7 @@ The drive is initialized with an **MBR partition table** to maximize compatibili
 ### 2. Install Ventoy
 
 ```bash
-sudo ./Ventoy2Disk.sh -i -s -r 145408000 /dev/sdX
+sudo ./Ventoy2Disk.sh -i -s -r 145407960 /dev/sdX
 ```
 
 > 💡 This will create:
