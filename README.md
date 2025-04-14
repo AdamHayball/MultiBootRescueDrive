@@ -137,9 +137,13 @@ X:\PortableApps\PortableApps.exe
 │   ├── kali-linux.iso
 │   └── rescuezilla.iso
 ├── ventoy.json
-└── persistence.dat
+└──persistence.dat
 
-/Tools (2nd Partition)
+/VTOYEFI (2nd Partition - Hidden)
+├── EFI/
+│   └── Boot/ (Ventoy UEFI boot files)
+
+/Tools (3rd Partition)
 ├── PortableApps/
 │   ├── PortableApps.exe
 │   └── Apps/
@@ -147,10 +151,6 @@ X:\PortableApps\PortableApps.exe
 │   ├── rescuezilla/
 │   ├── testdisk/
 │   └── ddrescue-gui/
-
-/VTOYEFI (3rd Partition - Hidden)
-├── EFI/
-│   └── Boot/ (Ventoy UEFI boot files)
 ```
 
 ---
