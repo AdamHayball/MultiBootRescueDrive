@@ -76,16 +76,13 @@ The drive is initialized with an **MBR partition table** to maximize compatibili
 ### 1. Prepare the Drive
 
 1. Connect the Arion enclosure to your system.
-2. Use **GParted** or **Disk Management** to create an **MBR layout**.
-3. Allocate:
-   - Leave space for ~120GB unallocated (Ventoy will use this)
-   - ~130GB at the end of the drive for tools partition
-4. Run the Ventoy installer (next step) which will also create the 32MB `VTOYEFI` partition automatically.
+2. Use **GParted** or **Disk Management** to create an **MBR layout** while this step is not strictly necessary it is a peace of mind step to ensure drive is setup correctly.
+3. Run the Ventoy installer with the correct flags (next step) which will also create the 32MB `VTOYEFI` partition automatically.
 
 ### 2. Install Ventoy
 
 ```bash
-sudo ./Ventoy2Disk.sh -i /dev/sdX
+sudo ./Ventoy2Disk.sh -i -s -r 133120000 /dev/sdX
 ```
 
 > 💡 This will create:
