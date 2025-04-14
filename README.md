@@ -1,2 +1,171 @@
-# MultiBootRescueDrive
-Ventoy Multi-Rescue Portable NVMe Drive
+# 🛠️ Ventoy Multi-Rescue NVMe Drive on ROG Strix Arion (Samsung 970 EVO 250GB)
+
+This project details the creation of a **high-performance, durable, and consolidated Ventoy bootable drive** using an **ROG Strix Arion NVMe enclosure** paired with a **250GB Samsung 970 EVO** SSD. The purpose of this setup is to replace a scattered collection of USB sticks with a single, fast, and reliable drive that supports **BIOS and UEFI booting**, **secure boot**, **persistence**, and **portable applications** for both **Windows and Linux** environments.
+
+---
+
+## 🧰 What You’ll Need
+
+- **ROG Strix Arion NVMe Enclosure**
+- **Samsung 970 EVO 250GB NVMe SSD**
+- A Linux or Windows host to run Ventoy and partition tools
+- [Ventoy](https://www.ventoy.net/)
+- (Optional) [VentoyPlugson](https://github.com/ventoy/VentoyPlugson) for persistence and secure boot
+- Tools like `GParted`, `Rufus`, or `DiskGenius` (for partitioning if needed)
+- Internet access for cloning additional Linux utilities and portable Windows apps
+
+---
+
+## 💾 Partition Layout
+
+The drive is initialized with an **MBR partition table** to maximize compatibility, especially with older legacy BIOS systems.
+
+| Partition | Size         | Type       | Purpose                                                                 |
+|-----------|--------------|------------|-------------------------------------------------------------------------|
+| sdx1      | ~120GB       | exFAT      | Primary Ventoy partition: Live ISOs (Windows/Linux), persistence files  |
+| sdx2      | ~130GB       | exFAT/NTFS | Additional data & tools: PortableApps (Windows), cloned Linux utilities |
+| sdx3      | 32MB         | FAT16      | `VTOYEFI` – required by Ventoy for UEFI boot and Secure Boot support    |
+| Unused    | Small buffer | -          | Small alignment buffer or reserved by Ventoy installer                  |
+
+**Note:** The second user partition is placed at the *end* of the drive to ensure optimal compatibility with legacy BIOS environments, some of which misbehave with complex partitioning early on the disk.
+
+---
+
+## ⚙️ Features
+
+- ✅ **Ventoy Bootloader**  
+  Supports booting **multiple ISO/WIM/IMG/VHD(x)** files directly without needing to rewrite the drive.
+
+- ✅ **Legacy BIOS & UEFI Compatible**  
+  MBR layout ensures the drive boots on older BIOS systems **and** UEFI systems (with secure boot enabled).
+
+- ✅ **Secure Boot Enabled**  
+  Enabled via VentoyPlugson using Ventoy's signed UEFI bootloader in the `VTOYEFI` partition.
+
+- ✅ **Persistence**  
+  Select live Linux ISOs (e.g., Ubuntu, Kali, MX Linux) are configured with persistence via VentoyPlugson.
+
+- ✅ **PortableApps (Windows)**  
+  Second partition holds a **full PortableApps suite** to run Windows tools without installations.
+
+- ✅ **Cloned Linux Git Tools**  
+  Second partition also contains cloned Git repos of essential Linux tools/utilities like:
+  - `rescuezilla`
+  - `ventoy`
+  - `testdisk`
+  - `gparted`
+  - `ddrescue-gui`
+  - `balena-etcher`
+
+- ✅ **Fast, Durable, Easy to Update**  
+  NVMe performance + USB 3.2 gen 2 = lightning-fast ISOs and tool access with SSD-level endurance.
+
+---
+
+## 🪛 Setup Instructions
+
+### 1. Prepare the Drive
+
+1. Connect the Arion enclosure to your system.
+2. Use **GParted** or **Disk Management** to create an **MBR layout**.
+3. Allocate:
+   - Leave space for ~120GB unallocated (Ventoy will use this)
+   - ~130GB at the end of the drive for tools partition
+4. Run the Ventoy installer (next step) which will also create the 32MB `VTOYEFI` partition automatically.
+
+### 2. Install Ventoy
+
+```bash
+sudo ./Ventoy2Disk.sh -i /dev/sdX
+```
+
+> 💡 This will create:
+> - First partition: exFAT ISO/data partition (~120GB)
+> - Third partition: 32MB `VTOYEFI` (FAT16) for UEFI/Secure Boot  
+> You may now manually create the second tools partition (~130GB) at the end.
+
+### 3. Enable Secure Boot and Persistence
+
+Use [VentoyPlugson](https://github.com/ventoy/VentoyPlugson) to:
+
+- Enable Secure Boot support
+- Configure persistence for desired ISOs
+- Optionally enable theme customization, auto installation scripts, etc.
+
+### 4. Add ISOs and Persistence
+
+Copy all your desired ISOs to the first partition:
+- Windows 10/11 installers
+- Linux distros (Ubuntu, Debian, Arch, etc.)
+- Rescue tools (Rescuezilla, Clonezilla, Hiren's Boot, etc.)
+
+For persistence, follow [Ventoy’s persistence guide](https://www.ventoy.net/en/plugin_persistence.html).
+
+### 5. Setup the Tools Partition
+
+- Format the second partition (at the end) as **exFAT** or **NTFS**.
+- Clone Linux tool repositories:
+
+```bash
+git clone https://github.com/rescuezilla/rescuezilla.git /mnt/tools/rescuezilla
+```
+
+- Install [PortableApps.com Platform](https://portableapps.com/) and configure:
+
+```bash
+X:\PortableApps\PortableApps.exe
+```
+
+---
+
+## 📁 Example Folder Structure
+
+```
+/Ventoy (1st Partition)
+├── ISO/
+│   ├── Windows11.iso
+│   ├── ubuntu-22.04.iso
+│   ├── kali-linux.iso
+│   └── rescuezilla.iso
+├── ventoy.json
+└── persistence.dat
+
+/Tools (2nd Partition)
+├── PortableApps/
+│   ├── PortableApps.exe
+│   └── Apps/
+├── linux-tools/
+│   ├── rescuezilla/
+│   ├── testdisk/
+│   └── ddrescue-gui/
+
+/VTOYEFI (3rd Partition - Hidden)
+├── EFI/
+│   └── Boot/ (Ventoy UEFI boot files)
+```
+
+---
+
+## 🎯 Why This Setup?
+
+- **Speed & Reliability**: NVMe drive in a high-quality USB-C enclosure is vastly superior to flash drives.
+- **One Drive to Rule Them All**: Consolidates all recovery/install tools and portable environments in one device.
+- **Always Ready**: Works across machines, from vintage BIOS laptops to modern UEFI systems with secure boot.
+- **Persistence**: Linux livesystems retain changes and tools between reboots.
+
+---
+
+## 🧩 Future Ideas
+
+- Add **Ventoy auto-install scripts** for unattended Windows or Linux installs.
+- Setup a **dual-bootable Linux install** on the drive.
+- Include **encrypted partitions** or `veracrypt` containers for secure data storage.
+
+---
+
+## 📌 Credits
+
+- [Ventoy](https://github.com/ventoy/Ventoy)
+- [VentoyPlugson](https://github.com/ventoy/VentoyPlugson)
+- [PortableApps](https://portableapps.com/)
+- All open-source rescue tools and distros used on the drive
